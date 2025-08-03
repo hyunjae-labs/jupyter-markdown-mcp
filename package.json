@@ -1,6 +1,6 @@
 {
   "name": "notebook-convert-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple MCP server for Jupyter Notebook ↔ Markdown conversion. Optimized for AI analysis.",
   "main": "mcp-server.py",
   "bin": {
@@ -36,7 +36,7 @@
   },
   "files": [
     "mcp-server.py",
-    "converter-logic.py",
+    "converter_logic.py",
     "requirements.txt",
     "install.js",
     "README.md"

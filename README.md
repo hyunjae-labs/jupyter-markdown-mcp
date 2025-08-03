@@ -23,7 +23,17 @@ Simple and focused MCP server for Jupyter Notebook ↔ Markdown conversion.
 
 ## Installation
 
-### 1. Install Dependencies
+### Quick Install with NPX (Recommended)
+
+```bash
+npx -y notebook-convert-mcp
+```
+
+**That's it!** Automatically installs dependencies and configures Claude Code CLI.
+
+### Manual Installation
+
+#### 1. Install Dependencies
 
 ```bash
 cd "{YOUR_PROJECT_PATH}/notebook-convert-mcp"

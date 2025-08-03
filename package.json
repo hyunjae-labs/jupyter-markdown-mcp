@@ -1,0 +1,48 @@
+{
+  "name": "notebook-convert-mcp",
+  "version": "1.0.0",
+  "description": "Simple MCP server for Jupyter Notebook ↔ Markdown conversion. Optimized for AI analysis.",
+  "main": "mcp-server.py",
+  "bin": {
+    "notebook-convert-mcp": "./install.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node install.js"
+  },
+  "keywords": [
+    "mcp",
+    "jupyter",
+    "notebook",
+    "markdown",
+    "conversion",
+    "ai",
+    "claude",
+    "gemini",
+    "python"
+  ],
+  "author": "hyunjae-labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyunjae-labs/notebook-convert-mcp.git"
+  },
+  "homepage": "https://github.com/hyunjae-labs/notebook-convert-mcp",
+  "bugs": {
+    "url": "https://github.com/hyunjae-labs/notebook-convert-mcp/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "mcp-server.py",
+    "converter-logic.py",
+    "requirements.txt",
+    "install.js",
+    "README.md"
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "python3": "*"
+  }
+}

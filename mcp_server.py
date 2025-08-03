@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
+"""
+Notebook Convert MCP Server
+A Model Context Protocol server for Jupyter Notebook ↔ Markdown conversion.
+"""
 import asyncio
-import sys
 import json
+import sys
+from typing import List
+
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
-import mcp.types as types
+from mcp.types import Content, TextContent, Tool
 
 # Import module containing actual conversion logic
 import converter_logic
@@ -13,10 +19,10 @@ import converter_logic
 server = Server("notebook-convert-mcp")
 
 @server.list_tools()
-async def list_tools() -> list[types.Tool]:
+async def list_tools() -> List[Tool]:
     """Provides Jupyter Notebook and Markdown conversion tools."""
     return [
-        types.Tool(
+        Tool(
             name="convert_notebook",
             description="Convert Jupyter Notebook (.ipynb) files to clean Markdown (.md). Code execution results are excluded.",
             inputSchema={
@@ -34,7 +40,7 @@ async def list_tools() -> list[types.Tool]:
                 "required": ["source_path", "output_dir"]
             }
         ),
-        types.Tool(
+        Tool(
             name="convert_markdown",
             description="Convert Markdown (.md) files to Jupyter Notebook (.ipynb). Code blocks are converted to code cells, everything else to markdown cells.",
             inputSchema={
@@ -55,7 +61,7 @@ async def list_tools() -> list[types.Tool]:
     ]
 
 @server.call_tool()
-async def call_tool(name: str, arguments: dict) -> list[types.Content]:
+async def call_tool(name: str, arguments: dict) -> List[Content]:
     """Handle tool call requests from agents."""
     try:
         source_path = arguments.get("source_path")
@@ -72,14 +78,11 @@ async def call_tool(name: str, arguments: dict) -> list[types.Content]:
             raise ValueError(f"Unknown tool name: {name}")
 
         # Return result as JSON formatted text
-        return [types.TextContent(type="text", text=json.dumps(result, indent=2))]
+        return [TextContent(type="text", text=json.dumps(result, indent=2))]
 
     except Exception as e:
         error_result = {"status": "error", "message": f"Error occurred during tool execution: {str(e)}"}
-        return [types.TextContent(type="text", text=json.dumps(error_result, indent=2))]
-
-from mcp.server.models import InitializationOptions
-from mcp.server import NotificationOptions
+        return [TextContent(type="text", text=json.dumps(error_result, indent=2))]
 
 async def main():
     """Start the MCP server."""
@@ -88,14 +91,7 @@ async def main():
         await server.run(
             read_stream,
             write_stream,
-            InitializationOptions(
-                server_name="notebook-convert-mcp",
-                server_version="1.0.0",
-                capabilities=server.get_capabilities(
-                    notification_options=NotificationOptions(),
-                    experimental_capabilities={}
-                )
-            )
+            server.create_initialization_options()
         )
 
 if __name__ == "__main__":

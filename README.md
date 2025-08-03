@@ -26,10 +26,27 @@ Simple and focused MCP server for Jupyter Notebook ↔ Markdown conversion.
 ### Quick Install with NPX (Recommended)
 
 ```bash
-npx -y notebook-convert-mcp
+npx -y notebook-convert-mcp install
 ```
 
-**That's it!** Automatically installs dependencies and configures Claude Code CLI.
+**That's it!** Automatically installs dependencies and configures Claude Desktop.
+
+### Claude Code CLI Installation (User Scope)
+
+For Claude Code CLI, use the `claude mcp add` command:
+
+```bash
+# Install latest version
+npx -y notebook-convert-mcp install
+
+# Add to Claude Code CLI (user scope)
+claude mcp add --scope user notebook-convert-mcp -- python3 /Users/YOUR_USERNAME/.npm/_npx/[hash]/node_modules/notebook-convert-mcp/mcp_server.py
+```
+
+**Or manually with specific version:**
+```bash
+claude mcp add --scope user notebook-convert-mcp -- npx -y notebook-convert-mcp@latest
+```
 
 ### Manual Installation
 
@@ -55,7 +72,7 @@ pip install -r requirements.txt
     "notebook-convert": {
       "command": "python3",
       "args": [
-        "/{YOUR_PROJECT_PATH}/notebook-convert-mcp/mcp-server.py"
+        "/{YOUR_PROJECT_PATH}/notebook-convert-mcp/mcp_server.py"
       ],
       "env": {
         "PYTHONPATH": "/{YOUR_PROJECT_PATH}/notebook-convert-mcp",
@@ -74,7 +91,7 @@ pip install -r requirements.txt
     "notebook-convert": {
       "command": "python",
       "args": [
-        "C:\\\\{YOUR_PROJECT_PATH}\\\\notebook-convert-mcp\\\\mcp-server.py"
+        "C:\\\\{YOUR_PROJECT_PATH}\\\\notebook-convert-mcp\\\\mcp_server.py"
       ],
       "env": {
         "PYTHONPATH": "C:\\\\{YOUR_PROJECT_PATH}\\\\notebook-convert-mcp",
@@ -160,7 +177,7 @@ python -c "import nbformat; print('nbformat OK')"   # Windows
 
 ### Permission Issues (macOS/Linux)
 ```bash
-chmod +x /{YOUR_PROJECT_PATH}/notebook-convert-mcp/mcp-server.py
+chmod +x /{YOUR_PROJECT_PATH}/notebook-convert-mcp/mcp_server.py
 ```
 
 ## Path Configuration

@@ -1,11 +1,11 @@
 {
-  "name": "notebook-convert-mcp",
+  "name": "jupyter-markdown-mcp",
   "version": "1.2.0",
-  "description": "Simple MCP server for Jupyter Notebook ↔ Markdown conversion. Optimized for AI analysis.",
+  "description": "MCP server for seamless Jupyter Notebook ↔ Markdown conversion. Preserves cell structure for AI analysis.",
   "main": "mcp_server.py",
   "bin": {
-    "notebook-convert-mcp": "./run-server.js",
-    "notebook-convert-mcp-install": "./install.js"
+    "jupyter-markdown-mcp": "./run-server.js",
+    "jupyter-markdown-mcp-install": "./install.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,11 +26,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hyunjae-labs/notebook-convert-mcp.git"
+    "url": "https://github.com/hyunjae-labs/jupyter-markdown-mcp.git"
   },
-  "homepage": "https://github.com/hyunjae-labs/notebook-convert-mcp",
+  "homepage": "https://github.com/hyunjae-labs/jupyter-markdown-mcp",
   "bugs": {
-    "url": "https://github.com/hyunjae-labs/notebook-convert-mcp/issues"
+    "url": "https://github.com/hyunjae-labs/jupyter-markdown-mcp/issues"
   },
   "engines": {
     "node": ">=14.0.0"

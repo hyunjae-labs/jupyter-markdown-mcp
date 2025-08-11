@@ -1,6 +1,8 @@
-# Notebook Convert MCP Server
+# Jupyter Markdown MCP Server
 
-Simple and focused MCP server for Jupyter Notebook ↔ Markdown conversion.
+> **📢 Migration Notice**: This package was previously named `notebook-convert-mcp`. If you have the old package installed, please uninstall it and install `jupyter-markdown-mcp` instead.
+
+MCP server for seamless Jupyter Notebook ↔ Markdown conversion with perfect cell preservation.
 
 ## Features
 
@@ -26,7 +28,7 @@ Simple and focused MCP server for Jupyter Notebook ↔ Markdown conversion.
 ### Quick Install with NPX (Recommended)
 
 ```bash
-npx -y notebook-convert-mcp install
+npx -y jupyter-markdown-mcp install
 ```
 
 **That's it!** Automatically installs dependencies and configures Claude Desktop.
@@ -37,15 +39,15 @@ For Claude Code CLI, use the `claude mcp add` command:
 
 ```bash
 # Install latest version
-npx -y notebook-convert-mcp install
+npx -y jupyter-markdown-mcp install
 
 # Add to Claude Code CLI (user scope)
-claude mcp add --scope user notebook-convert-mcp -- python3 /Users/YOUR_USERNAME/.npm/_npx/[hash]/node_modules/notebook-convert-mcp/mcp_server.py
+claude mcp add --scope user jupyter-markdown-mcp -- python3 /Users/YOUR_USERNAME/.npm/_npx/[hash]/node_modules/jupyter-markdown-mcp/mcp_server.py
 ```
 
 **Or manually with specific version:**
 ```bash
-claude mcp add --scope user notebook-convert-mcp -- npx -y notebook-convert-mcp@latest
+claude mcp add --scope user jupyter-markdown-mcp -- npx -y jupyter-markdown-mcp@latest
 ```
 
 ### Manual Installation
@@ -53,7 +55,7 @@ claude mcp add --scope user notebook-convert-mcp -- npx -y notebook-convert-mcp@
 #### 1. Install Dependencies
 
 ```bash
-cd "{YOUR_PROJECT_PATH}/notebook-convert-mcp"
+cd "{YOUR_PROJECT_PATH}/jupyter-markdown-mcp"
 pip install -r requirements.txt
 ```
 
@@ -69,13 +71,13 @@ pip install -r requirements.txt
 ```json
 {
   "mcpServers": {
-    "notebook-convert": {
+    "jupyter-markdown": {
       "command": "python3",
       "args": [
-        "/{YOUR_PROJECT_PATH}/notebook-convert-mcp/mcp_server.py"
+        "/{YOUR_PROJECT_PATH}/jupyter-markdown-mcp/mcp_server.py"
       ],
       "env": {
-        "PYTHONPATH": "/{YOUR_PROJECT_PATH}/notebook-convert-mcp",
+        "PYTHONPATH": "/{YOUR_PROJECT_PATH}/jupyter-markdown-mcp",
         "PYTHONIOENCODING": "utf-8"
       }
     }
@@ -88,13 +90,13 @@ pip install -r requirements.txt
 ```json
 {
   "mcpServers": {
-    "notebook-convert": {
+    "jupyter-markdown": {
       "command": "python",
       "args": [
-        "C:\\\\{YOUR_PROJECT_PATH}\\\\notebook-convert-mcp\\\\mcp_server.py"
+        "C:\\\\{YOUR_PROJECT_PATH}\\\\jupyter-markdown-mcp\\\\mcp_server.py"
       ],
       "env": {
-        "PYTHONPATH": "C:\\\\{YOUR_PROJECT_PATH}\\\\notebook-convert-mcp",
+        "PYTHONPATH": "C:\\\\{YOUR_PROJECT_PATH}\\\\jupyter-markdown-mcp",
         "PYTHONIOENCODING": "utf-8"
       }
     }
@@ -106,7 +108,7 @@ pip install -r requirements.txt
 
 **Success confirmation:**
 ```
-🟢 notebook-convert - Connected (2 tools cached)
+🟢 jupyter-markdown - Connected (2 tools cached)
   convert_notebook, convert_markdown
 ```
 
@@ -177,7 +179,7 @@ python -c "import nbformat; print('nbformat OK')"   # Windows
 
 ### Permission Issues (macOS/Linux)
 ```bash
-chmod +x /{YOUR_PROJECT_PATH}/notebook-convert-mcp/mcp_server.py
+chmod +x /{YOUR_PROJECT_PATH}/jupyter-markdown-mcp/mcp_server.py
 ```
 
 ## Path Configuration

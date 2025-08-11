@@ -192,6 +192,17 @@ Replace `{YOUR_PROJECT_PATH}` with your actual path:
 - `C:\\Users\\YourName\\Projects\\mcp-servers`
 - `D:\\Development\\mcp-servers`
 
+## Changelog
+
+### Version 1.2.0 (2025-08-11)
+- **Fixed**: Preserve individual markdown cell boundaries during round-trip conversion
+- **Added**: Cell boundary markers (`<!-- NOTEBOOK_CELL_BOUNDARY -->`) to maintain cell structure
+- **Improved**: Enhanced markdown-to-notebook parsing to respect cell boundaries
+- **Result**: Perfect round-trip conversion with no cell merging
+
+### Version 1.1.2
+- Initial stable release with basic conversion functionality
+
 ---
 
 **Focus**: Simple, reliable Jupyter Notebook ↔ Markdown conversion for AI-enhanced development workflows.

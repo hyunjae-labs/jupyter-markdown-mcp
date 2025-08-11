@@ -25,7 +25,7 @@ jobs:
       - name: Check if version changed
         id: version-check
         run: |
-          PUBLISHED_VERSION=$(npm view notebook-convert-mcp version 2>/dev/null || echo "0.0.0")
+          PUBLISHED_VERSION=$(npm view jupyter-markdown-mcp version 2>/dev/null || echo "0.0.0")
           LOCAL_VERSION=$(node -p "require('./package.json').version")
           echo "published=$PUBLISHED_VERSION" >> $GITHUB_OUTPUT
           echo "local=$LOCAL_VERSION" >> $GITHUB_OUTPUT
@@ -52,18 +52,18 @@ jobs:
           body: |
             ## Changes in v${{ steps.version-check.outputs.local }}
             
-            - Fixed MCP server execution via npx
-            - Added run-server.js wrapper for proper Python server launching
-            - Separated install command from server execution
+            - Renamed package from notebook-convert-mcp to jupyter-markdown-mcp
+            - Perfect cell preservation with boundary markers
+            - Improved round-trip conversion fidelity
             
             ### Installation
             ```bash
-            npx -y notebook-convert-mcp@latest install
+            npx -y jupyter-markdown-mcp@latest install
             ```
             
             ### Usage with Claude Code CLI
             ```bash
-            claude mcp add notebook-convert-mcp -- npx -y notebook-convert-mcp@latest
+            claude mcp add jupyter-markdown-mcp -- npx -y jupyter-markdown-mcp@latest
             ```
           draft: false
           prerelease: false

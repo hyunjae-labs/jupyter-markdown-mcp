@@ -1,0 +1,33 @@
+# Development files
+__pycache__/
+*.pyc
+.git/
+.github/
+.gitignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Documentation source
+docs/
+*.md
+!README.md
+
+# Config files
+.editorconfig
+.eslintrc*
+.prettierrc*
+
+# Build artifacts
+dist/
+build/
+*.log

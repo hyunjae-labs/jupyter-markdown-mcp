@@ -1,10 +1,11 @@
 {
   "name": "notebook-convert-mcp",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Simple MCP server for Jupyter Notebook ↔ Markdown conversion. Optimized for AI analysis.",
   "main": "mcp_server.py",
   "bin": {
-    "notebook-convert-mcp": "./install.js"
+    "notebook-convert-mcp": "./run-server.js",
+    "notebook-convert-mcp-install": "./install.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -39,6 +40,7 @@
     "converter_logic.py",
     "requirements.txt",
     "install.js",
+    "run-server.js",
     "README.md"
   ],
   "dependencies": {},

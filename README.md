@@ -28,7 +28,7 @@ MCP server for seamless Jupyter Notebook ↔ Markdown conversion with perfect ce
 ### Quick Install with NPX (Recommended)
 
 ```bash
-npx -y jupyter-markdown-mcp install
+npx jupyter-markdown-mcp install
 ```
 
 **That's it!** Automatically installs dependencies and configures Claude Desktop.
@@ -39,7 +39,7 @@ For Claude Code CLI, use the `claude mcp add` command:
 
 ```bash
 # Install latest version
-npx -y jupyter-markdown-mcp install
+npx jupyter-markdown-mcp install
 
 # Add to Claude Code CLI (user scope)
 claude mcp add --scope user jupyter-markdown-mcp -- python3 /Users/YOUR_USERNAME/.npm/_npx/[hash]/node_modules/jupyter-markdown-mcp/mcp_server.py
@@ -47,7 +47,7 @@ claude mcp add --scope user jupyter-markdown-mcp -- python3 /Users/YOUR_USERNAME
 
 **Or manually with specific version:**
 ```bash
-claude mcp add --scope user jupyter-markdown-mcp -- npx -y jupyter-markdown-mcp@latest
+claude mcp add --scope user jupyter-markdown-mcp -- npx jupyter-markdown-mcp@latest
 ```
 
 ### Manual Installation

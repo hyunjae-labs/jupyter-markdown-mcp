@@ -1,5 +1,0 @@
-# For MCP server functionality
-mcp>=1.0.0
-
-# For Jupyter Notebook (.ipynb) parsing and conversion
-nbformat>=5.0.0

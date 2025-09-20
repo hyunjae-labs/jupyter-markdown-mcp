@@ -1,8 +1,9 @@
 # Jupyter Markdown MCP Server
 
+> **🎉 Now in TypeScript!** Version 1.3.0 is a complete TypeScript rewrite. No Python required!
 > **📢 Migration Notice**: This package was previously named `notebook-convert-mcp`. If you have the old package installed, please uninstall it and install `jupyter-markdown-mcp` instead.
 
-MCP server for seamless Jupyter Notebook ↔ Markdown conversion with perfect cell preservation.
+Native TypeScript MCP server for seamless Jupyter Notebook ↔ Markdown conversion with perfect cell preservation.
 
 ## Features
 
@@ -31,7 +32,7 @@ MCP server for seamless Jupyter Notebook ↔ Markdown conversion with perfect ce
 npx jupyter-markdown-mcp install
 ```
 
-**That's it!** Automatically installs dependencies and configures Claude Desktop.
+**That's it!** No Python required - pure TypeScript implementation.
 
 ### Claude Code CLI Installation (User Scope)
 
@@ -42,7 +43,7 @@ For Claude Code CLI, use the `claude mcp add` command:
 npx jupyter-markdown-mcp install
 
 # Add to Claude Code CLI (user scope)
-claude mcp add --scope user jupyter-markdown-mcp -- python3 /Users/YOUR_USERNAME/.npm/_npx/[hash]/node_modules/jupyter-markdown-mcp/mcp_server.py
+claude mcp add --scope user jupyter-markdown-mcp -- npx jupyter-markdown-mcp@latest
 ```
 
 **Or manually with specific version:**
@@ -56,11 +57,11 @@ claude mcp add --scope user jupyter-markdown-mcp -- npx jupyter-markdown-mcp@lat
 
 ```bash
 cd "{YOUR_PROJECT_PATH}/jupyter-markdown-mcp"
-pip install -r requirements.txt
+npm install
+npm run build
 ```
 
-**Required package:**
-- `nbformat` - For Jupyter Notebook processing
+**No Python dependencies required!** Built with TypeScript and Node.js.
 
 ### 2. AI CLI Configuration
 
@@ -72,13 +73,12 @@ pip install -r requirements.txt
 {
   "mcpServers": {
     "jupyter-markdown": {
-      "command": "python3",
+      "command": "node",
       "args": [
-        "/{YOUR_PROJECT_PATH}/jupyter-markdown-mcp/mcp_server.py"
+        "/{YOUR_PROJECT_PATH}/jupyter-markdown-mcp/dist/index.js"
       ],
       "env": {
-        "PYTHONPATH": "/{YOUR_PROJECT_PATH}/jupyter-markdown-mcp",
-        "PYTHONIOENCODING": "utf-8"
+        "NODE_ENV": "production"
       }
     }
   }
@@ -91,13 +91,12 @@ pip install -r requirements.txt
 {
   "mcpServers": {
     "jupyter-markdown": {
-      "command": "python",
+      "command": "node",
       "args": [
-        "C:\\\\{YOUR_PROJECT_PATH}\\\\jupyter-markdown-mcp\\\\mcp_server.py"
+        "C:\\\\{YOUR_PROJECT_PATH}\\\\jupyter-markdown-mcp\\\\dist\\\\index.js"
       ],
       "env": {
-        "PYTHONPATH": "C:\\\\{YOUR_PROJECT_PATH}\\\\jupyter-markdown-mcp",
-        "PYTHONIOENCODING": "utf-8"
+        "NODE_ENV": "production"
       }
     }
   }
@@ -166,20 +165,22 @@ convert_markdown(
 
 ## Troubleshooting
 
-### Python Path Issues
+### Node.js Version
 ```bash
-# Check Python version
-python3 --version  # macOS/Linux
-python --version   # Windows
+# Check Node.js version (requires v14 or higher)
+node --version
 
-# Verify nbformat installation
-python3 -c "import nbformat; print('nbformat OK')"  # macOS/Linux
-python -c "import nbformat; print('nbformat OK')"   # Windows
+# Verify installation
+node -e "console.log('Node.js OK')"
 ```
 
-### Permission Issues (macOS/Linux)
+### Build Issues
 ```bash
-chmod +x /{YOUR_PROJECT_PATH}/jupyter-markdown-mcp/mcp_server.py
+# Rebuild if needed
+npm run build
+
+# Check build output
+ls dist/
 ```
 
 ## Path Configuration
@@ -196,8 +197,12 @@ Replace `{YOUR_PROJECT_PATH}` with your actual path:
 
 ## Changelog
 
-### Version 1.2.0 (2025-08-11)
-- **Fixed**: Preserve individual markdown cell boundaries during round-trip conversion
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
+
+### Latest: Version 1.3.0 (2025-01-20)
+- **Complete TypeScript rewrite** - No Python required!
+- **Native performance** - Faster execution with Node.js
+- **Type safety** - Full TypeScript type definitions
 - **Added**: Cell boundary markers (`<!-- NOTEBOOK_CELL_BOUNDARY -->`) to maintain cell structure
 - **Improved**: Enhanced markdown-to-notebook parsing to respect cell boundaries
 - **Result**: Perfect round-trip conversion with no cell merging

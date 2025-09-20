@@ -1,15 +1,17 @@
 {
   "name": "jupyter-markdown-mcp",
-  "version": "1.2.0",
-  "description": "MCP server for seamless Jupyter Notebook ↔ Markdown conversion. Preserves cell structure for AI analysis.",
-  "main": "mcp_server.py",
+  "version": "1.3.0",
+  "description": "Native TypeScript MCP server for seamless Jupyter Notebook ↔ Markdown conversion. No Python required!",
+  "main": "dist/index.js",
   "bin": {
-    "jupyter-markdown-mcp": "./run-server.js",
-    "jupyter-markdown-mcp-install": "./install.js"
+    "jupyter-markdown-mcp": "./dist/run-server.js",
+    "jupyter-markdown-mcp-install": "./dist/install.js"
   },
   "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node install.js"
+    "prepare": "npm run build"
   },
   "keywords": [
     "mcp",
@@ -20,7 +22,7 @@
     "ai",
     "claude",
     "gemini",
-    "python"
+    "typescript"
   ],
   "author": "hyunjae-labs",
   "license": "MIT",
@@ -36,15 +38,14 @@
     "node": ">=14.0.0"
   },
   "files": [
-    "mcp_server.py",
-    "converter_logic.py",
-    "requirements.txt",
-    "install.js",
-    "run-server.js",
+    "dist/**/*",
     "README.md"
   ],
-  "dependencies": {},
-  "peerDependencies": {
-    "python3": "*"
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
   }
 }

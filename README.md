@@ -26,29 +26,32 @@ Native TypeScript MCP server for seamless Jupyter Notebook ↔ Markdown conversi
 
 ## Installation
 
-### Quick Install with NPX (Recommended)
+### Quick Install (Recommended)
 
 ```bash
-npx jupyter-markdown-mcp install
+# Install globally
+npm install -g jupyter-markdown-mcp
+
+# Run the installer
+jupyter-markdown-mcp install
 ```
 
 **That's it!** No Python required - pure TypeScript implementation.
 
-### Claude Code CLI Installation (User Scope)
+### Claude Code CLI Installation
 
-For Claude Code CLI, use the `claude mcp add` command:
-
+#### Option 1: Using NPX (No installation needed)
 ```bash
-# Install latest version
-npx jupyter-markdown-mcp install
-
-# Add to Claude Code CLI (user scope)
 claude mcp add --scope user jupyter-markdown-mcp -- npx jupyter-markdown-mcp@latest
 ```
 
-**Or manually with specific version:**
+#### Option 2: Using NPM Global Install
 ```bash
-claude mcp add --scope user jupyter-markdown-mcp -- npx jupyter-markdown-mcp@latest
+# Install globally first
+npm install -g jupyter-markdown-mcp
+
+# Then add to Claude Code CLI
+claude mcp add --scope user jupyter-markdown-mcp -- jupyter-markdown-mcp
 ```
 
 ### Manual Installation
@@ -109,6 +112,17 @@ npm run build
 ```
 🟢 jupyter-markdown - Connected (2 tools cached)
   convert_notebook, convert_markdown
+```
+
+## Verify Installation
+
+```bash
+# Check installed version
+npm list -g jupyter-markdown-mcp
+
+# Verify MCP connection
+claude mcp list
+# Should show: jupyter-markdown-mcp - ✓ Connected
 ```
 
 ## Usage Examples
